@@ -27,7 +27,6 @@ int main(){;
         node *head = nullptr;
         fstream file("todoList.txt", ios:: in | ios:: out);
         if (!isEmpty(file)){
-            node *trav = head;
             string line;
             while (getline(file,line)){
                 node *ptr = new node;
@@ -68,7 +67,7 @@ bool isEmpty(fstream& file){
     streampos endPos = file.tellg();
 
     if (currentPos == endPos){
-        return true;
+        return true; 
     }
     file.good();
     return false;
@@ -100,7 +99,7 @@ void addToList(node *&head, fstream& file){
     }else {
         cout << "you entered a wrong type of importance level." << endl;
         cout << "Please enter a new level." << endl;
-
+        cin >> level;
     }
     }while(!isType(level));
     node *trav = head;
